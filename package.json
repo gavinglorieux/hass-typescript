@@ -1,9 +1,9 @@
 {
   "type": "module",
-  "name": "home_automation",
-  "version": "24.9.1",
+  "name": "hashas",
+  "version": "1.0.0",
   "homepage": "https://docs.digital-alchemy.app",
-  "description": "Demonstration home automation project tuned for HAOS",
+  "description": "HASS Home Automation Service",
   "scripts": {
     "build": "./scripts/deploy.sh",
     "typecheck": "tsc --skipLibCheck --noEmit",
@@ -56,5 +56,5 @@
     "type-fest": "^4.26.1",
     "typescript": "^5.6.2"
   },
-  "packageManager": "yarn@4.5.0"
+  "packageManager": "pnpm@9.12.3+sha256.24235772cc4ac82a62627cd47f834c72667a2ce87799a846ec4e8e555e2d4b8b"
 }

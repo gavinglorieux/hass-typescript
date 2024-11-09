@@ -1,8 +1,18 @@
-import { TServiceParams } from "@digital-alchemy/core";
+import { TServiceParams, sleep } from "@digital-alchemy/core";
 
-export function HelloWorld({ hass, config }: TServiceParams) {
-  hass.call.notify.notify({
-    message: `Your application is running in ${config.home_automation.NODE_ENV}!`,
+export async function HelloWorld({ hass, lifecycle }: TServiceParams) {
+  const bBedroomLamps = hass.refBy.id("light.basement_bedroom");
+
+  await hass.call.notify.notify({
+    message: `Your lights are currently ${bBedroomLamps.state}!`,
     title: "Hello world 🔮",
+  });
+
+  // eslint-disable-next-line unicorn/no-array-for-each
+  hass.entity.listEntities("light").forEach(async id => {
+    const entity = hass.refBy.id(id);
+    await entity.toggle();
+    await sleep(2000);
+    await entity.toggle();
   });
 }
