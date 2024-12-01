@@ -32,7 +32,7 @@ Install dependencies using Yarn:
 corepack enable
 
 # Install node_modules
-yarn install
+pnpm install
 ```
 
 ### Configure
